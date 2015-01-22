@@ -37,19 +37,22 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
     
-    /*public void chooseAClaim(View v){
+    //switches to ExistingClaimsActivity when "Choose an Existing Claim button is clicked
+    public void chooseAClaim(View v){
     	Toast.makeText(this, "Choose a claim", Toast.LENGTH_SHORT).show();
     	
-    	ClaimListController cc - new ClaimListController();
+    	Intent intent = new Intent(MainActivity.this, ExistingClaimsActivity.class);
+    	startActivity(intent);
     	
-    	try{
-    		Claim c = cc.chooseClaim
-    	} catch {
-        	Toast.makeText(this, "There are no claims to choose from", Toast.LENGTH_SHORT).show();
-
-    	}
+    }
+    
+    //switches to CreateClaimActivity when "Create a New Claim" button is clicked
+    public void createClaim(View v){
+    	Toast.makeText(this, "Create a claim", Toast.LENGTH_SHORT).show();
     	
-    }*/
+    	Intent intent = new Intent(MainActivity.this, CreateClaimActivity.class);
+    	startActivity(intent);
+    }
     
     public void emailClaim(MenuItem menu){
     	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
@@ -74,4 +77,5 @@ public class MainActivity extends Activity {
     	Intent intent = new Intent(MainActivity.this, ChangeStatusActivity.class);
     	startActivity(intent);
     }
+
 }

@@ -38,6 +38,18 @@
             android:name=".ChangeStatusActivity"
             android:label="@string/title_activity_change_status" >
         </activity>
+        <activity
+            android:name=".ExistingClaimsActivity"
+            android:label="@string/title_activity_existing_claims" >
+        </activity>
+        <activity
+            android:name=".CreateClaimActivity"
+            android:label="@string/title_activity_create_claim" >
+        </activity>
+        <activity
+            android:name=".ClaimCreatedActivity"
+            android:label="@string/title_activity_claim_created" >
+        </activity>
     </application>
 
 </manifest>

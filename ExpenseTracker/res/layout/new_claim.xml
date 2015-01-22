@@ -41,37 +41,18 @@
         android:text="@string/description_of_claim"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/startDateEditText"
+    <Button
+        android:id="@+id/createClaimButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/claimDateRangeTextView"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/createClaimButton"
-        android:layout_toEndOf="@+id/createClaimButton"
-        android:ems="10"
-        android:inputType="date" />
-
-    <EditText
-        android:id="@+id/endDateEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/startDateEditText"
-        android:layout_alignStart="@+id/startDateEditText"
-        android:layout_below="@+id/startDateEditText"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="date" />
-
-    <TextView
-        android:id="@+id/endDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/descriptionOfClaimTextView"
-        android:layout_alignStart="@+id/descriptionOfClaimTextView"
-        android:layout_alignTop="@+id/endDateEditText"
-        android:text="@string/end"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:onClick="createClaim"
+        android:text="@string/create" />
 
     <TextView
         android:id="@+id/startDateTextView"
@@ -79,20 +60,39 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/claimDateRangeTextView"
         android:layout_alignStart="@+id/claimDateRangeTextView"
-        android:layout_alignTop="@+id/startDateEditText"
+        android:layout_below="@+id/claimDateRangeTextView"
+        android:layout_marginTop="18dp"
         android:text="@string/start"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Button
-        android:id="@+id/createClaimButton"
+    <TextView
+        android:id="@+id/endDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="18dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginEnd="31dp"
-        android:text="@string/create" />
+        android:layout_alignLeft="@+id/startDateTextView"
+        android:layout_alignStart="@+id/descriptionOfClaimTextView"
+        android:layout_below="@+id/startDateTextView"
+        android:layout_marginTop="23dp"
+        android:text="@string/end"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/startDateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/startDateTextView"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/startDateTextView"
+        android:ems="10"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/endDateEditText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startDateEditText"
+        android:layout_below="@+id/startDateEditText"
+        android:ems="10"
+        android:inputType="date" />
 
 </RelativeLayout>
