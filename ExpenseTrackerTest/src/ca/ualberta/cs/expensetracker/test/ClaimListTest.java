@@ -5,6 +5,7 @@ import java.util.Collection;
 import junit.framework.TestCase;
 import ca.ualberta.cs.expensetracker.Claim;
 import ca.ualberta.cs.expensetracker.ClaimList;
+import ca.ualberta.cs.expensetracker.EmptyClaimListException;
 
 public class ClaimListTest extends TestCase {
 
@@ -43,14 +44,30 @@ public class ClaimListTest extends TestCase {
     }
 
     public void testChooseClaim(){
-        ClaimList claimList = new ClaimList();
+        try{
+    	ClaimList claimList = new ClaimList();
         String startDate = "start Date";
         String endDate = "end Date";
         String description = "description";
         Claim testClaim = new Claim(startDate, endDate, description);
         claimList.addClaim(testClaim);
-        Claim chosenClaim = claimList.chooseClaim(testClaim);
+        Claim chosenClaim = claimList.chooseClaim();
         assertTrue("claim is null", chosenClaim != null);
         assertTrue("Chosen claim", chosenClaim.equals(testClaim));
+        } catch (EmptyClaimListException e) {
+        	assertTrue("EmptyClaimListException was thrown!"+e, false);
+        }
+    }
+    
+    public void testChooseEmptyClaimList(){
+    	ClaimList claimList = new ClaimList();
+    	try {
+    		Claim c = claimList.chooseClaim();
+    		assertTrue("We shouln't reach here", c == null);
+    		assertTrue("We shouln't reach here", false);
+    	} catch (EmptyClaimListException e){
+    		assertTrue("We should reach here", true);
+    	}
+    	
     }
 }

@@ -24,8 +24,13 @@ public class ClaimList {
         claimList.remove(claim);
     }
 
-    public Claim chooseClaim(Claim testClaim) {
-        return testClaim;
+    public Claim chooseClaim() throws EmptyClaimListException {
+        int size = claimList.size();
+        if (size <= 0){
+        	throw new EmptyClaimListException();
+        }
+        int index = (int) (claimList.size() * Math.random());
+        return claimList.get(index);
     }
-
+    
 }

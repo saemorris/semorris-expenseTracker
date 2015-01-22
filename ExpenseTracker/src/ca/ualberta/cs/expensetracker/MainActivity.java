@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 
@@ -35,6 +36,20 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+    
+    /*public void chooseAClaim(View v){
+    	Toast.makeText(this, "Choose a claim", Toast.LENGTH_SHORT).show();
+    	
+    	ClaimListController cc - new ClaimListController();
+    	
+    	try{
+    		Claim c = cc.chooseClaim
+    	} catch {
+        	Toast.makeText(this, "There are no claims to choose from", Toast.LENGTH_SHORT).show();
+
+    	}
+    	
+    }*/
     
     public void emailClaim(MenuItem menu){
     	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
