@@ -1,9 +1,11 @@
 package ca.ualberta.cs.expensetracker;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -32,5 +34,29 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    public void emailClaim(MenuItem menu){
+    	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, EmailClaimActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void editExpense(MenuItem menu){
+    	Toast.makeText(this, "Edit Expense", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, EditExpenseActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void addExpense(MenuItem menu){
+    	Toast.makeText(this, "Add Expense", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, AddExpenseActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void changeStatus(MenuItem menu){
+    	Toast.makeText(this, "Change Claim Status", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(MainActivity.this, ChangeStatusActivity.class);
+    	startActivity(intent);
     }
 }
