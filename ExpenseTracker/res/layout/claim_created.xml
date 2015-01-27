@@ -25,12 +25,24 @@
         android:text="Create Another Claim" />
 
     <Button
+        android:id="@+id/viewClaimsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/createAnotherClaimButton"
+        android:layout_below="@+id/AddExpensesButton"
+        android:layout_marginLeft="39dp"
+        android:layout_marginTop="28dp"
+        android:onClick="viewClaims"
+        android:text="View Claims" />
+
+    <Button
         android:id="@+id/AddExpensesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/claimHasBeenCreatedTextView"
         android:layout_below="@+id/createAnotherClaimButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="44dp"
+        android:onClick="addExpense"
         android:text="Add Expenses To Your Claim" />
 
 </RelativeLayout>

@@ -3,22 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/claimDateRangeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="22dp"
-        android:text="@string/date_range"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <EditText
-        android:id="@+id/DescriptionOfClaimEditText"
-        android:layout_width="wrap_content"
+        android:id="@+id/descriptionOfClaimEditText"
+        android:gravity="top"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/createClaimButton"
         android:layout_alignLeft="@+id/descriptionOfClaimTextView"
@@ -29,17 +17,6 @@
 
         <requestFocus />
     </EditText>
-
-    <TextView
-        android:id="@+id/descriptionOfClaimTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/claimDateRangeTextView"
-        android:layout_alignStart="@+id/claimDateRangeTextView"
-        android:layout_below="@+id/claimDateRangeTextView"
-        android:layout_marginTop="105dp"
-        android:text="@string/description_of_claim"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/createClaimButton"
@@ -53,17 +30,6 @@
         android:layout_marginRight="31dp"
         android:onClick="createClaim"
         android:text="@string/create" />
-
-    <TextView
-        android:id="@+id/startDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/claimDateRangeTextView"
-        android:layout_alignStart="@+id/claimDateRangeTextView"
-        android:layout_below="@+id/claimDateRangeTextView"
-        android:layout_marginTop="18dp"
-        android:text="@string/start"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
         android:id="@+id/endDateTextView"
@@ -81,8 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/startDateTextView"
-        android:layout_marginLeft="28dp"
-        android:layout_toRightOf="@+id/startDateTextView"
+        android:layout_toRightOf="@+id/claimNameTextView"
         android:ems="10"
         android:inputType="date" />
 
@@ -94,5 +59,57 @@
         android:layout_below="@+id/startDateEditText"
         android:ems="10"
         android:inputType="date" />
+
+    <TextView
+        android:id="@+id/descriptionOfClaimTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/endDateTextView"
+        android:layout_alignStart="@+id/claimDateRangeTextView"
+        android:layout_centerVertical="true"
+        android:text="@string/description_of_claim"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/claimNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/claimDateRangeTextView"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:text="Name:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/claimNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/claimNameTextView"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/startDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/claimDateRangeTextView"
+        android:layout_alignStart="@+id/claimDateRangeTextView"
+        android:layout_below="@+id/claimDateRangeTextView"
+        android:layout_marginTop="19dp"
+        android:text="@string/start"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/claimDateRangeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/claimNameEditText"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="29dp"
+        android:text="@string/date_range"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

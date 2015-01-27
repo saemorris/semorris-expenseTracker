@@ -1,9 +1,12 @@
 package ca.ualberta.cs.expensetracker;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class AddExpenseActivity extends Activity {
 
@@ -31,4 +34,12 @@ public class AddExpenseActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	//switches to the expenseListActivity when the "save" button is clicked
+    public void saveExpense(View v){
+    	Toast.makeText(this, "Save Expense", Toast.LENGTH_SHORT).show();
+    	
+    	Intent intent = new Intent(AddExpenseActivity.this, ExpenseListActivity.class);
+    	startActivity(intent);
+    }
 }

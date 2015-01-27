@@ -42,4 +42,19 @@ public class ClaimCreatedActivity extends Activity {
     	Intent intent = new Intent(ClaimCreatedActivity.this, CreateClaimActivity.class);
     	startActivity(intent);
     }
+    
+    //switches to AddExpenseActivity when "Add Expenses to your Claim" button is clicked
+    public void addExpense(View v){
+    	Toast.makeText(this, "Add Expense", Toast.LENGTH_SHORT).show();
+    	
+    	Intent intent = new Intent(ClaimCreatedActivity.this, AddExpenseActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void viewClaims(View v){
+    	Toast.makeText(this, "View claims", Toast.LENGTH_SHORT).show();
+    	
+    	Intent intent = new Intent(ClaimCreatedActivity.this, ExistingClaimsActivity.class);
+    	startActivity(intent);
+    }
 }

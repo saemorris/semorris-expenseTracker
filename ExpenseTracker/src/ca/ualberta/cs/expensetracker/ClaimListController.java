@@ -16,4 +16,7 @@ public class ClaimListController {
 		return getClaimList().chooseClaim();
 	}
 	
+	public void addClaim(Claim claim){
+		getClaimList().addClaim(claim);
+	}
 }

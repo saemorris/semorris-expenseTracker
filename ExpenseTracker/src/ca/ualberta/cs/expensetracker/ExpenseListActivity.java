@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class EditExpenseActivity extends Activity {
+public class ExpenseListActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class EditExpenseActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.edit_expense, menu);
+		getMenuInflater().inflate(R.menu.expense_list, menu);
 		return true;
 	}
 

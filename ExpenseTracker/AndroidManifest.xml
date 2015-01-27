@@ -50,6 +50,14 @@
             android:name=".ClaimCreatedActivity"
             android:label="@string/title_activity_claim_created" >
         </activity>
+        <activity
+            android:name=".ExpenseListActivity"
+            android:label="@string/title_activity_expense_list" >
+        </activity>
+        <activity
+            android:name=".ViewClaimActivity"
+            android:label="@string/title_activity_view_claim" >
+        </activity>
     </application>
 
 </manifest>

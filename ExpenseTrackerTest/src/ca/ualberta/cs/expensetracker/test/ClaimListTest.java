@@ -17,10 +17,11 @@ public class ClaimListTest extends TestCase {
 
     public void testAddClaim(){
     	ClaimList claimList = new ClaimList();
+    	String name = "name";
     	String startDate = "start Date";
     	String endDate = "end Date";
         String description = "description";
-        Claim testClaim = new Claim(startDate, endDate, description);
+        Claim testClaim = new Claim(name ,startDate, endDate, description);
         claimList.addClaim(testClaim);
         Collection<Claim> claims = claimList.getClaims();
         assertTrue("Claim list size ", claims.size() == 1);
@@ -29,10 +30,11 @@ public class ClaimListTest extends TestCase {
         
     public void testRemoveClaim(){
     	ClaimList claimList = new ClaimList();
+    	String name = "name";
         String startDate = "start Date";
         String endDate = "end Date";
         String description = "description";
-        Claim testClaim = new Claim(startDate, endDate, description);
+        Claim testClaim = new Claim(name, startDate, endDate, description);
         claimList.addClaim(testClaim);
         Collection<Claim> claims = claimList.getClaims();
         assertTrue("claim list size isn't big enough", claims.size() == 1);
@@ -46,10 +48,11 @@ public class ClaimListTest extends TestCase {
     public void testChooseClaim(){
         try{
     	ClaimList claimList = new ClaimList();
+    	String name = "name";
         String startDate = "start Date";
         String endDate = "end Date";
         String description = "description";
-        Claim testClaim = new Claim(startDate, endDate, description);
+        Claim testClaim = new Claim(name, startDate, endDate, description);
         claimList.addClaim(testClaim);
         Claim chosenClaim = claimList.chooseClaim();
         assertTrue("claim is null", chosenClaim != null);

@@ -115,6 +115,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/desciptionEditText"
         android:layout_marginBottom="17dp"
+        android:onClick="saveExpense"
         android:text="Save" />
 
     <TextView
