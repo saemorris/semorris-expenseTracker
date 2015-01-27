@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -43,13 +46,28 @@ public class ExistingClaimsActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, 
 					int position, long id){
-				Toast.makeText(ExistingClaimsActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
-				Claim claim = list.get(position);
-				ClaimListController.getClaimList().removeClaim(claim);
+				//Toast.makeText(ExistingClaimsActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
+				AlertDialog.Builder abd = new AlertDialog.Builder(ExistingClaimsActivity.this);
+				abd.setMessage("Delete "+list.get(position).toString()+"?");
+				abd.setCancelable(true);
+				final int finalPosition = position;
+				abd.setPositiveButton("Delete", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						Claim claim = list.get(finalPosition);
+						ClaimListController.getClaimList().removeClaim(claim);
+					}
+				});
+				abd.setNegativeButton("Cancel", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
 		    	//Intent intent = new Intent(ExistingClaimsActivity.this, ViewClaimActivity.class);
 		    	//EditText editText = (EditText) findViewById(R.id.claimNameEditText);
 		    	//editText.setText(claim.getName());
 		    	//startActivity(intent);
+				
+				//Toast.makeText(ExistingClaimsActivity.this, "Is the click working?", Toast.LENGTH_SHORT).show();
+				abd.show();
 				return false;
 			}
 		});
