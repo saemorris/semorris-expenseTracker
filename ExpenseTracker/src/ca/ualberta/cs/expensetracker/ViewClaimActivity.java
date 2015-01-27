@@ -11,6 +11,7 @@ public class ViewClaimActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_claim);
+        ClaimListManager.initManager(this.getApplicationContext());
 	}
 
 	@Override

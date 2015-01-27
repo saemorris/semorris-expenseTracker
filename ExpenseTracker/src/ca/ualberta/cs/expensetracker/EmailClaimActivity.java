@@ -11,6 +11,7 @@ public class EmailClaimActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.email_claim);
+        ClaimListManager.initManager(this.getApplicationContext());
 	}
 
 	@Override

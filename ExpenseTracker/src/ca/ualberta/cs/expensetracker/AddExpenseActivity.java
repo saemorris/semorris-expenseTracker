@@ -14,7 +14,8 @@ public class AddExpenseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_expense);
-	}
+        ClaimListManager.initManager(this.getApplicationContext());
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

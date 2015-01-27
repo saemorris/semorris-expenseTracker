@@ -11,6 +11,7 @@ public class ExpenseListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.expense_list);
+        ClaimListManager.initManager(this.getApplicationContext());
 	}
 
 	@Override

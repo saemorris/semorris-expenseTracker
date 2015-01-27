@@ -1,15 +1,44 @@
 package ca.ualberta.cs.expensetracker;
 
+import java.io.IOException;
+
+import android.content.Context;
+
 public class ClaimListController {
 	//Lazy Singleton
 	private static ClaimList claimList = null;
-	
+	//Warning: throws runTime exception
 	static public ClaimList getClaimList(){
 		if (claimList == null){
-			claimList = new ClaimList();
+			try {
+				claimList = ClaimListManager.getManager().loadClaimList();
+				claimList.addListener(new Listener() {
+					@Override
+					public void update(){
+						saveClaimList();
+					}
+				});
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");
+			}
 		}
-		
 		return claimList;
+	}
+	
+	static public void saveClaimList(){
+		try {
+			ClaimListManager.getManager().saveClaimList(getClaimList());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");
+		}
 	}
 
 	public Claim chooseClaim() throws EmptyClaimListException {

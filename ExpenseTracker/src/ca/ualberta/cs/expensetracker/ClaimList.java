@@ -1,53 +1,74 @@
 package ca.ualberta.cs.expensetracker;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class ClaimList {
+public class ClaimList implements Serializable{
 
-    protected ArrayList<Claim> claimList;
-    protected ArrayList<Listener> listeners;
+    /**
+	 * Claim List serialization ID
+	 */
+	private static final long serialVersionUID = -5346830892229501486L;
+	protected ArrayList<Claim> claimList = null;
+	protected transient ArrayList<Listener> listeners = null;
+	
+	public ClaimList() {
+		claimList = new ArrayList<Claim>();		
+		listeners = new ArrayList<Listener>();
+	}
+	
+	private ArrayList<Listener> getListeners() {
+		if (listeners == null ) {
+			listeners = new ArrayList<Listener>();
+		}
+		return listeners;
+	}
+	
+	public Collection<Claim> getClaims() {
+		return claimList;		
+	}
 
-    public ClaimList(){
-        claimList = new ArrayList<Claim>();
-        listeners = new ArrayList<Listener>();
-    }
+	public void addClaim(Claim testStudent) {
+		claimList.add(testStudent);
+		notifyListeners();
+	}
 
-    public Collection<Claim> getClaims() {
-        return claimList;
-    }
+	private void notifyListeners() {
+		for (Listener  listener : getListeners()) {
+			listener.update();
+		}
+	}
+	
+	public void removeClaim(Claim testStudent) {
+		claimList.remove(testStudent);
+		notifyListeners();
+	}
 
-    public void addClaim(Claim claim) {
-        claimList.add(claim);
-        notifyListeners();
-    }
+	public Claim chooseClaim() throws EmptyClaimListException {
+		int size = claimList.size();
+		if (size <= 0) {
+			throw new EmptyClaimListException();
+		}
+		int index = (int) (claimList.size() * Math.random());
+		return claimList.get(index);
+	}
 
-    public void removeClaim(Claim claim) {
-        claimList.remove(claim);
-        notifyListeners();
-    }
+	public int size() {
+		return claimList.size();
+	}
 
-    public Claim chooseClaim() throws EmptyClaimListException {
-        int size = claimList.size();
-        if (size <= 0){
-        	throw new EmptyClaimListException();
-        }
-        int index = (int) (claimList.size() * Math.random());
-        return claimList.get(index);
-    }
-    
-    public void notifyListeners(){
-    	for (Listener listener : listeners) {
-    		listener.update();
-    	}
-    }
-    
-    public void addListener(Listener l){
-    	listeners.add(l);
-    }
-    
-    public void removeListener(Listener l){
-    	listeners.remove(l);
-    }
+	public boolean contains(Claim testStudent) {
+		return claimList.contains(testStudent);
+	}
+
+	public void addListener(Listener l) {
+		getListeners().add(l);
+	}
+
+	public void removeListener(Listener l) {
+		getListeners().remove(l);
+	}
+	
 }

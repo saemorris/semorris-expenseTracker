@@ -11,6 +11,7 @@ public class ChangeStatusActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.change_status);
+        ClaimListManager.initManager(this.getApplicationContext());
 	}
 
 	@Override

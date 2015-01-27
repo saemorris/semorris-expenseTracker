@@ -25,6 +25,7 @@ public class ExistingClaimsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.existing_claims);
+        ClaimListManager.initManager(this.getApplicationContext());
 		
 		ListView listView = (ListView) findViewById(R.id.existingClaimsListView);
 		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
@@ -66,7 +67,6 @@ public class ExistingClaimsActivity extends Activity {
 		    	//editText.setText(claim.getName());
 		    	//startActivity(intent);
 				
-				//Toast.makeText(ExistingClaimsActivity.this, "Is the click working?", Toast.LENGTH_SHORT).show();
 				abd.show();
 				return false;
 			}
