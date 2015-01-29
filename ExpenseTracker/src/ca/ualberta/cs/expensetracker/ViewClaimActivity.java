@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class ViewClaimActivity extends Activity {
 
@@ -12,6 +13,15 @@ public class ViewClaimActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_claim);
         ClaimListManager.initManager(this.getApplicationContext());
+        Claim claim = getIntent().getParcelableExtra("claimTag");
+    	EditText editText = (EditText) findViewById(R.id.claimNameEditText);
+    	editText.setText(claim.getName());
+    	editText = (EditText) findViewById(R.id.startDateEditText1);
+    	editText.setText(claim.getStartDate());
+    	editText = (EditText) findViewById(R.id.endDateEditText1);
+    	editText.setText(claim.getEndDate());
+    	editText = (EditText) findViewById(R.id.descriptionEditText1);
+    	editText.setText(claim.getDescription());
 	}
 
 	@Override

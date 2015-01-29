@@ -2,8 +2,11 @@ package ca.ualberta.cs.expensetracker;
 
 import java.io.Serializable;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Claim implements Serializable {
+
+public class Claim implements Serializable, Parcelable {
 
 	/**
 	 * Claim serialization ID
@@ -27,6 +30,16 @@ public class Claim implements Serializable {
         this.startDate = startDate;
         this.endDate = endDate;
         this.descrpition = description;
+    }
+    
+    public Claim (Parcel in){
+    	String[] data = new String[4];
+    	
+    	in.readStringArray(data);
+    	this.name = data[0];
+    	this.startDate = data[1];
+    	this.endDate = data[2];
+    	this.descrpition = data[3];
     }
     
     public String getName(){
@@ -67,5 +80,31 @@ public class Claim implements Serializable {
     public int hashcode(){
     	return ("Claim: " + getName()).hashCode();
     }
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeStringArray(new String[]{this.name, this.startDate, this.endDate, this.descrpition});
+	}
+	
+	public static final Parcelable.Creator<Claim> CREATOR = new Parcelable.Creator<Claim>() {
+
+		@Override
+		public Claim createFromParcel(Parcel source) {
+			// TODO Auto-generated method stub
+			return new Claim(source);
+		}
+
+		@Override
+		public Claim[] newArray(int size) {
+			// TODO Auto-generated method stub
+			return new Claim[size];
+		}
+	};
 
 }

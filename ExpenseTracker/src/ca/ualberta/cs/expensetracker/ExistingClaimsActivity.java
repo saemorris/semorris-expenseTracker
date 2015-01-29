@@ -9,10 +9,12 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -69,6 +71,34 @@ public class ExistingClaimsActivity extends Activity {
 				
 				abd.show();
 				return false;
+			}
+		});
+		
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				Toast.makeText(ExistingClaimsActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
+				AlertDialog.Builder abd = new AlertDialog.Builder(ExistingClaimsActivity.this);
+				abd.setMessage("Select "+list.get(position).toString()+"?");
+				abd.setCancelable(true);
+				final int finalPosition = position;
+				abd.setPositiveButton("Select", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						Claim claim = list.get(finalPosition);
+						//ClaimListController.getClaimList().selectClaim(claim);
+				    	Intent intent = new Intent(ExistingClaimsActivity.this, ViewClaimActivity.class);
+				    	intent.putExtra("claimTag", (Parcelable)claim);
+				    	startActivity(intent);
+						
+					}
+				});
+				abd.setNegativeButton("Cancel", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
+				abd.show();
 			}
 		});
 	}
