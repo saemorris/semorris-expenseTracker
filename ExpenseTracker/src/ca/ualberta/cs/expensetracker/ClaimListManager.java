@@ -43,11 +43,11 @@ public class ClaimListManager {
 
 	public ClaimList loadClaimList() throws ClassNotFoundException, IOException {
 		SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
-		String studentListData = settings.getString(clKey, "");
-		if (studentListData.equals("")) {
+		String claimListData = settings.getString(clKey, "");
+		if (claimListData.equals("")) {
 			return new ClaimList();
 		} else {
-			return claimListFromString(studentListData);
+			return claimListFromString(claimListData);
 		}
 	}
 

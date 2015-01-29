@@ -16,6 +16,7 @@ public class Claim implements Serializable, Parcelable {
     protected String startDate;
     protected String endDate;
     protected String descrpition;
+    protected ExpenseList expenses;
 
     public Claim(){
     	
@@ -56,6 +57,10 @@ public class Claim implements Serializable, Parcelable {
 
     public String getDescription() {
         return descrpition;
+    }
+    
+    public ExpenseList getExpenses(){
+    	return expenses;
     }
     
     public String toString(){

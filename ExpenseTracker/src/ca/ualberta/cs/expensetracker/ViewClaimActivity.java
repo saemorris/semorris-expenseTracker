@@ -22,6 +22,7 @@ public class ViewClaimActivity extends Activity {
     	editText.setText(claim.getEndDate());
     	editText = (EditText) findViewById(R.id.descriptionEditText1);
     	editText.setText(claim.getDescription());
+    	
 	}
 
 	@Override
