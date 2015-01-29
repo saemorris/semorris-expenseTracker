@@ -1,21 +1,67 @@
 package ca.ualberta.cs.expensetracker;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AddExpenseActivity extends Activity {
 
+	private Spinner expenseCurrencySpinner;
+	private Spinner expenseCategorySpinner;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_expense);
         ClaimListManager.initManager(this.getApplicationContext());
+        ExpenseListManager.initManager(this.getApplicationContext());
+        addItemsOnExpenseCurrencySpinner();
+        addItemsOnExpenseCategorySpinner();
     }
+	
+	public void addItemsOnExpenseCurrencySpinner(){
+		expenseCurrencySpinner = (Spinner) findViewById(R.id.expenseCurrencySpinner);
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("CAD");
+		list.add("USD");
+		list.add("EUR");
+		list.add("GBP");
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+			android.R.layout.simple_spinner_item, list);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		expenseCurrencySpinner.setAdapter(dataAdapter);
+	}
+	
+	public void addItemsOnExpenseCategorySpinner(){
+		expenseCategorySpinner = (Spinner) findViewById(R.id.expenseCategorySpinner);
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("Air Fare");
+		list.add("Ground Transport");
+		list.add("Vehicle Rental");
+		list.add("Fuel");
+		list.add("Parking");
+		list.add("Registration");
+		list.add("Accomodation");
+		list.add("Meal");
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+			android.R.layout.simple_spinner_item, list);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		expenseCategorySpinner.setAdapter(dataAdapter);
+	}
+	
+	public void addListenerOnSpinnerItemSelection() {
+		expenseCurrencySpinner = (Spinner) findViewById(R.id.expenseCurrencySpinner);
+		expenseCurrencySpinner.setOnItemSelectedListener(new OnItemSelectedListenerSpinner());
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,6 +86,17 @@ public class AddExpenseActivity extends Activity {
     public void saveExpense(View v){
     	Toast.makeText(this, "Save Expense", Toast.LENGTH_SHORT).show();
     	
+    	ExpenseListController el = new ExpenseListController();
+    	EditText nameText = (EditText) findViewById(R.id.expenseNameEditText);
+    	EditText dateText = (EditText) findViewById(R.id.expenseDateEditText);
+    	//EditText currencyText = (EditText) findViewById(R.id.expenseCurrencyEditText);
+    	EditText amountText = (EditText) findViewById(R.id.expenseAmountEditText);
+    	EditText descritionText = (EditText) findViewById(R.id.expenseDescriptionEditText);
+    	/*Spinner
+    	
+    	el.addExpense(new Expense(nameText.getText().toString(), dateText.getText().toString(), category
+    			currencyText.getText().toString(), amountText.getText().toString(), descritionText.getText().toString()));
+    	*/
     	Intent intent = new Intent(AddExpenseActivity.this, ExpenseListActivity.class);
     	startActivity(intent);
     }

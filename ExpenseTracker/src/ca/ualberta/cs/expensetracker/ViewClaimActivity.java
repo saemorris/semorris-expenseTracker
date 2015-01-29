@@ -1,10 +1,15 @@
 package ca.ualberta.cs.expensetracker;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
 public class ViewClaimActivity extends Activity {
 
@@ -13,6 +18,7 @@ public class ViewClaimActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_claim);
         ClaimListManager.initManager(this.getApplicationContext());
+        ExpenseListManager.initManager(this.getApplicationContext());
         Claim claim = getIntent().getParcelableExtra("claimTag");
     	EditText editText = (EditText) findViewById(R.id.claimNameEditText);
     	editText.setText(claim.getName());
@@ -22,6 +28,12 @@ public class ViewClaimActivity extends Activity {
     	editText.setText(claim.getEndDate());
     	editText = (EditText) findViewById(R.id.descriptionEditText1);
     	editText.setText(claim.getDescription());
+    	
+    	ListView listView = (ListView) findViewById(R.id.expensesListView);
+		Collection<Expense> expenses = ExpenseListController.getExpenseList().getExpenses();
+		final ArrayList<Expense> list = new ArrayList<Expense>(expenses);
+		final ArrayAdapter<Expense> expenseAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
+		listView.setAdapter(expenseAdapter);
     	
 	}
 

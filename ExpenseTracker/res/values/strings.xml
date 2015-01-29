@@ -24,5 +24,21 @@
     <string name="title_activity_expense_list">Expenses</string>
     <string name="choose_existing_claim">Choose an Existing Claim</string>
     <string name="title_activity_view_claim">View Claim</string>
+    <string-array name="expenseCategory">
+        <item>Air Fare</item>
+        <item>Ground Transport</item>
+        <item>Vehicle Rental</item>
+        <item>Fuel</item>
+        <item>Parking</item>
+        <item>Registration</item>
+        <item>Accomodation</item>
+        <item>Meal</item>
+    </string-array>
+    <string-array name="expenseCurrency">
+        <item>CAD</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+    </string-array>
 
 </resources>

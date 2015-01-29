@@ -38,7 +38,7 @@ public class CreateClaimActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-    //switches to CreateClaimActivity when "Create a New Claim" button is clicked
+    //switches to ClaimCreatedActivity when "Create a New Claim" button is clicked
     public void createClaim(View v){
     	Toast.makeText(this, "Create a claim", Toast.LENGTH_SHORT).show();
     	
