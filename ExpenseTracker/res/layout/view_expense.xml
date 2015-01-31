@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/expenseNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="22dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/expenseDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/expenseNameEditText"
+        android:layout_marginTop="10dp"
+        android:text="Date:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/expenseDateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/expenseDateTextVIew"
+        android:layout_alignBottom="@+id/expenseDateTextView"
+        android:layout_toRightOf="@+id/expenseDateTextView"
+        android:ems="10"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/expenseCategoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/expenseDateEditText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Category:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+        android:id="@+id/expenseCategorySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/expenseCategoryTextView"
+        android:layout_toRightOf="@+id/expenseCategoryTextView"
+        android:entries="@array/expenseCategory" />
+
+    <TextView
+        android:id="@+id/expenseCurrencyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expenseCategoryTextView"
+        android:layout_below="@+id/expenseCategorySpinner"
+        android:layout_marginTop="10dp"
+        android:text="Currency"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+	<Spinner
+        android:id="@+id/expenseCurrencySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/expenseCategorySpinner"
+        android:layout_alignLeft="@+id/expenseCategorySpinner"
+        android:layout_alignParentRight="true"
+        android:entries="@array/expenseCurrency" />
+
+    <TextView
+        android:id="@+id/expenseAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expenseCurrencyTextView"
+        android:layout_below="@+id/expenseCurrencySpinner"
+        android:layout_marginTop="10dp"
+        android:text="Amount:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/expenseAmountEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/expenseAmountTextView"
+        android:layout_toRightOf="@+id/expenseAmountTextView"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/expenseDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expenseAmountTextView"
+        android:layout_below="@+id/expenseAmountEditText"
+        android:layout_marginTop="10dp"
+        android:text="Description:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/expenseDescriptionEditText"
+        android:gravity="top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveExpenseButton"
+        android:layout_alignLeft="@+id/expenseDescriptionTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/expenseDescriptionTextView"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/saveExpenseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/expenseAmountEditText"
+        android:layout_marginBottom="10dp"
+        android:onClick="saveExpense"
+        android:text="Save" />
+
+
+
+</RelativeLayout>

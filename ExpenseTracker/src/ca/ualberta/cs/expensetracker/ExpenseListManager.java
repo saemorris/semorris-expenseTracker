@@ -13,9 +13,8 @@ import android.content.SharedPreferences.Editor;
 import android.util.Base64;
 
 public class ExpenseListManager {
-
-	static String prefFile = "ExpenseList";
-	static String clKey = "ExpenseList";
+	static final String prefFile = "ExpenseList";
+	static final String elKey = "expenseList";
 	
 	Context context;
 
@@ -29,7 +28,7 @@ public class ExpenseListManager {
 			expenseListManager = new ExpenseListManager(context);
 		}
 	}
-		
+	
 	public static ExpenseListManager getManager(){
 		if (expenseListManager == null) {
 			throw new RuntimeException("Did not initialize expenseListManager");
@@ -37,14 +36,14 @@ public class ExpenseListManager {
 		return expenseListManager;
 		
 	}
-		
+	
 	public ExpenseListManager(Context context) {
 		this.context = context;
 	}
 
 	public ExpenseList loadExpenseList() throws ClassNotFoundException, IOException {
 		SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
-		String expenseListData = settings.getString(clKey, "");
+		String expenseListData = settings.getString(elKey, "");
 		if (expenseListData.equals("")) {
 			return new ExpenseList();
 		} else {
@@ -52,10 +51,10 @@ public class ExpenseListManager {
 		}
 	}
 
-	public void saveExpenseList(ExpenseList cl) throws IOException{
-		SharedPreferences settings = context.getSharedPreferences(prefFile, context.MODE_PRIVATE);
+	public void saveExpenseList(ExpenseList el) throws IOException{
+		SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
 		Editor editor = settings.edit();
-		editor.putString(clKey, expenseListToString(cl));
+		editor.putString(elKey, expenseListToString(el));
 		editor.commit();
 	}
 
@@ -63,12 +62,13 @@ public class ExpenseListManager {
 		ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(expenseListData, Base64.DEFAULT));
 		ObjectInputStream oi = new ObjectInputStream(bi);
 		return (ExpenseList)oi.readObject();
-	}
 		
-	public static String expenseListToString(ExpenseList cl) throws IOException {
+	}
+	
+	public static String expenseListToString(ExpenseList el) throws IOException {
 		ByteArrayOutputStream bo = new ByteArrayOutputStream();
 		ObjectOutputStream oo = new ObjectOutputStream(bo);
-		oo.writeObject(cl);
+		oo.writeObject(el);
 		oo.close();
 		byte bytes[] = bo.toByteArray();
 		return Base64.encodeToString(bytes, Base64.DEFAULT);

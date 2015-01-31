@@ -24,6 +24,7 @@
     <string name="title_activity_expense_list">Expenses</string>
     <string name="choose_existing_claim">Choose an Existing Claim</string>
     <string name="title_activity_view_claim">View Claim</string>
+
     <string-array name="expenseCategory">
         <item>Air Fare</item>
         <item>Ground Transport</item>
@@ -40,5 +41,7 @@
         <item>EUR</item>
         <item>GBP</item>
     </string-array>
+
+    <string name="title_activity_view_expense">View Expense</string>
 
 </resources>

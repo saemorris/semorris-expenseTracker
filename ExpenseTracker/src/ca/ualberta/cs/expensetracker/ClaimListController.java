@@ -2,8 +2,6 @@ package ca.ualberta.cs.expensetracker;
 
 import java.io.IOException;
 
-import android.content.Context;
-
 public class ClaimListController {
 	//Lazy Singleton
 	private static ClaimList claimList = null;
@@ -21,11 +19,11 @@ public class ClaimListController {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");
+				throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager, ClassNotFoundException");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");
+				throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager, IOException");
 			}
 		}
 		return claimList;

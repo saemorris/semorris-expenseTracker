@@ -58,6 +58,10 @@
             android:name=".ViewClaimActivity"
             android:label="@string/title_activity_view_claim" >
         </activity>
+        <activity
+            android:name=".ViewExpenseActivity"
+            android:label="@string/title_activity_view_expense" >
+        </activity>
     </application>
 
 </manifest>

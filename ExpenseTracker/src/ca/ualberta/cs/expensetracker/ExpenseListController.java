@@ -3,7 +3,6 @@ package ca.ualberta.cs.expensetracker;
 import java.io.IOException;
 
 public class ExpenseListController {
-
 	//Lazy Singleton
 	private static ExpenseList expenseList = null;
 	//Warning: throws runTime exception
@@ -20,16 +19,16 @@ public class ExpenseListController {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				throw new RuntimeException("Could not deserialize expenseList from expenseListManager");
+				throw new RuntimeException("Could not deserialize expenseList from expenseListManager, ClassNotFoundException");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				throw new RuntimeException("Could not deserialize expenseList from expenseListManager");
+				throw new RuntimeException("Could not deserialize expenseList from expenseListManager, IOException");
 			}
 		}
 		return expenseList;
 	}
-		
+	
 	static public void saveExpenseList(){
 		try {
 			ExpenseListManager.getManager().saveExpenseList(getExpenseList());
@@ -44,7 +43,7 @@ public class ExpenseListController {
 		return getExpenseList().chooseExpense();
 	}
 	
-	public void addexpense(Expense expense){
+	public void addExpense(Expense expense){
 		getExpenseList().addExpense(expense);
 	}
 }

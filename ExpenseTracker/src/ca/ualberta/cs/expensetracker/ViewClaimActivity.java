@@ -4,12 +4,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class ViewClaimActivity extends Activity {
 
@@ -35,6 +44,41 @@ public class ViewClaimActivity extends Activity {
 		final ArrayAdapter<Expense> expenseAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
 		listView.setAdapter(expenseAdapter);
     	
+		ExpenseListController.getExpenseList().addListener(new Listener() {
+			@Override
+			public void update () {
+				list.clear();
+				Collection<Expense> expenses = ExpenseListController.getExpenseList().getExpenses();
+				list.addAll(expenses);
+				expenseAdapter.notifyDataSetChanged();
+			}
+		});
+		
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view,
+					int position, long id) {
+				Toast.makeText(ViewClaimActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
+				AlertDialog.Builder abd = new AlertDialog.Builder(ViewClaimActivity.this);
+				abd.setMessage("Select "+list.get(position).toString()+"?");
+				abd.setCancelable(true);
+				final int finalPosition = position;
+				abd.setNegativeButton("Cancel", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
+				abd.setPositiveButton("Select", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						Expense expense = list.get(finalPosition);
+				    	Intent intent = new Intent(ViewClaimActivity.this, ViewExpenseActivity.class);
+				    	intent.putExtra("expenseTag", (Parcelable)expense);
+				    	startActivity(intent);
+					}
+				});
+				abd.show();
+			}
+		});
 	}
 
 	@Override

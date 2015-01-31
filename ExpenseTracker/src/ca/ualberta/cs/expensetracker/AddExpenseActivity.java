@@ -89,14 +89,15 @@ public class AddExpenseActivity extends Activity {
     	ExpenseListController el = new ExpenseListController();
     	EditText nameText = (EditText) findViewById(R.id.expenseNameEditText);
     	EditText dateText = (EditText) findViewById(R.id.expenseDateEditText);
-    	//EditText currencyText = (EditText) findViewById(R.id.expenseCurrencyEditText);
+    	Spinner categorySpinner = (Spinner) findViewById(R.id.expenseCategorySpinner);
+    	Spinner currencySpinner = (Spinner) findViewById(R.id.expenseCurrencySpinner);
     	EditText amountText = (EditText) findViewById(R.id.expenseAmountEditText);
     	EditText descritionText = (EditText) findViewById(R.id.expenseDescriptionEditText);
-    	/*Spinner
     	
-    	el.addExpense(new Expense(nameText.getText().toString(), dateText.getText().toString(), category
-    			currencyText.getText().toString(), amountText.getText().toString(), descritionText.getText().toString()));
-    	*/
+    	el.addExpense(new Expense(nameText.getText().toString(), dateText.getText().toString(), 
+    			categorySpinner.getSelectedItem().toString(), currencySpinner.getSelectedItem().toString(), 
+    			amountText.getText().toString(), descritionText.getText().toString()));
+    	//Double.parseDouble(amountText.getText().toString())
     	Intent intent = new Intent(AddExpenseActivity.this, ExpenseListActivity.class);
     	startActivity(intent);
     }

@@ -64,10 +64,6 @@ public class ExistingClaimsActivity extends Activity {
 					public void onClick(DialogInterface dialog, int which) {
 					}
 				});
-		    	//Intent intent = new Intent(ExistingClaimsActivity.this, ViewClaimActivity.class);
-		    	//EditText editText = (EditText) findViewById(R.id.claimNameEditText);
-		    	//editText.setText(claim.getName());
-		    	//startActivity(intent);
 				
 				abd.show();
 				return false;
@@ -87,7 +83,6 @@ public class ExistingClaimsActivity extends Activity {
 				abd.setPositiveButton("Select", new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						Claim claim = list.get(finalPosition);
-						//ClaimListController.getClaimList().selectClaim(claim);
 				    	Intent intent = new Intent(ExistingClaimsActivity.this, ViewClaimActivity.class);
 				    	intent.putExtra("claimTag", (Parcelable)claim);
 				    	startActivity(intent);

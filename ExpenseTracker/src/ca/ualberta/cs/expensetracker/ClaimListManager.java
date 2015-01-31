@@ -52,7 +52,7 @@ public class ClaimListManager {
 	}
 
 	public void saveClaimList(ClaimList cl) throws IOException{
-		SharedPreferences settings = context.getSharedPreferences(prefFile, context.MODE_PRIVATE);
+		SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
 		Editor editor = settings.edit();
 		editor.putString(clKey, claimListToString(cl));
 		editor.commit();
