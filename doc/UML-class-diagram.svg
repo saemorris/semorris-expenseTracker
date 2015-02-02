@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="47cm" height="26cm" viewBox="102 35 923 518" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="687" y="55" width="164" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="687" y="55" width="164" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="769" y="74">Expense</text>
+    <rect style="fill: #ffffff" x="687" y="83" width="164" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="687" y="83" width="164" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="690" y="97">+date: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="690" y="113">+amount: Integer</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="690" y="129">+description: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="690" y="145">+category: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="690" y="161">+currency: String</text>
+    <rect style="fill: #ffffff" x="687" y="167" width="164" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="687" y="167" width="164" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="143" y="356" width="379.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="143" y="356" width="379.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="332.8" y="375">Claim</text>
+    <rect style="fill: #ffffff" x="143" y="384" width="379.6" height="100"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="143" y="384" width="379.6" height="100"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="398">+startDate: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="414">+endDate: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="430">+description: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="446">+expenseList: ExpenseList</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="462">+name: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="478">+status: String</text>
+    <rect style="fill: #ffffff" x="143" y="484" width="379.6" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="143" y="484" width="379.6" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="498">+addExpense(expense:Expense): Expense</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="514">+updateClaim(name:String,startDate:string,</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="530">             endDate:String,status:String): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="146" y="546">+getExpensePos(expense:Expense): int</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="612" y="385" width="194.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="612" y="385" width="194.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="709.4" y="404">ClaimList</text>
+    <rect style="fill: #ffffff" x="612" y="413" width="194.8" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="612" y="413" width="194.8" height="8"/>
+    <rect style="fill: #ffffff" x="612" y="421" width="194.8" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="612" y="421" width="194.8" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="615" y="435">+addClaim(claim:Claim)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="615" y="451">+getClaims(): Collection</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="615" y="467">+removeClaim(claim)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="615" y="483">+chooseClaim(): claim</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="585.822,437 560.3,437 560.3,454 523.606,454 "/>
+    <polygon style="fill: #ffffff" points="610.994,437 596.994,441.8 582.994,437 596.994,432.2 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="610.994,437 596.994,441.8 582.994,437 596.994,432.2 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="562.3" y="441.5"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="578.994" y="433"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="527.606" y="450"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="311" y="87" width="294.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="311" y="87" width="294.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="458.45" y="106">ExpenseList</text>
+    <rect style="fill: #ffffff" x="311" y="115" width="294.9" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="311" y="115" width="294.9" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="314" y="129">+expenseList: ArrayList&lt;Expense&gt;</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="314" y="145">+Listeners: ArrayList&lt;Listener&gt;</text>
+    <rect style="fill: #ffffff" x="311" y="151" width="294.9" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="311" y="151" width="294.9" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="314" y="165">+addExpense(expense:Expense): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="314" y="181">+removeExpense(expense:Expense): void</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="314" y="197">+getPos(expense:Expense)</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="632.081,145 653.452,145 653.452,115 685.995,115 "/>
+    <polygon style="fill: #ffffff" points="606.909,145 620.909,140.2 634.909,145 620.909,149.8 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="606.909,145 620.909,140.2 634.909,145 620.909,149.8 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="332.8,329.822 332.8,272.501 458.45,272.501 458.45,204.007 "/>
+    <polygon style="fill: #ffffff" points="332.8,354.994 328,340.994 332.8,326.994 337.6,340.994 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="332.8,354.994 328,340.994 332.8,326.994 337.6,340.994 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="103.75,339 286.85,339 298.85,351 298.85,373 103.75,373 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="103.75,339 286.85,339 298.85,351 298.85,373 103.75,373 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="286.85,339 286.85,351 298.85,351 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="110.75" y="363.9">
+      <tspan x="110.75" y="363.9">Houses claim attributes</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="757.75,341 956.25,341 968.25,353 968.25,407 757.75,407 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="757.75,341 956.25,341 968.25,353 968.25,407 757.75,407 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="956.25,341 956.25,353 968.25,353 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="764.75" y="365.9">
+      <tspan x="764.75" y="365.9">Keeps a list of claims.  </tspan>
+      <tspan x="764.75" y="381.9">Enables you to add and </tspan>
+      <tspan x="764.75" y="397.9">remove claims.</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="813.75,37 1012.25,37 1024.25,49 1024.25,71 813.75,71 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="813.75,37 1012.25,37 1024.25,49 1024.25,71 813.75,71 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="1012.25,37 1012.25,49 1024.25,49 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="820.75" y="61.9">
+      <tspan x="820.75" y="61.9">Houses expense attributes</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="189.75,68 380.55,68 392.55,80 392.55,102 189.75,102 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="189.75,68 380.55,68 392.55,80 392.55,102 189.75,102 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" points="380.55,68 380.55,80 392.55,80 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="196.75" y="92.9">
+      <tspan x="196.75" y="92.9">Keeps a list of expenses</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="807.768" y1="456.845" x2="909.161" y2="477.3"/>
+    <ellipse style="fill: #ffffff" cx="902.299" cy="475.916" rx="7" ry="7"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="902.299" cy="475.916" rx="7" ry="7"/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="925.161" y="479.3">
+    <tspan x="925.161" y="479.3">Serializable</tspan>
+  </text>
+</svg>

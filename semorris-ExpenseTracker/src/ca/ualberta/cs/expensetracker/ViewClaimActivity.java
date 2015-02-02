@@ -1,3 +1,19 @@
+/*  ExpenseTracker is an android app to track expense claims
+    Copyright (C) 2015  Sarah Morris
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
+
 package ca.ualberta.cs.expensetracker;
 
 import java.util.ArrayList;
@@ -21,6 +37,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class ViewClaimActivity extends Activity {
 
@@ -78,6 +95,32 @@ public class ViewClaimActivity extends Activity {
         	endDateEditText.setKeyListener(null);
         	descriptionEditText.setKeyListener(null);
         }
+        
+        
+        listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> adapterView, View view, 
+					int position, long id){
+				Toast.makeText(ViewClaimActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
+				AlertDialog.Builder abd = new AlertDialog.Builder(ViewClaimActivity.this);
+				abd.setMessage("Delete "+expenses.getExpense(position).toString()+"?");
+				abd.setCancelable(true);
+				final int finalPosition = position;
+				abd.setPositiveButton("Delete", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						Expense expense = expenses.getExpense(finalPosition);
+						expenses.removeExpense(expense);
+					}
+				});
+				abd.setNegativeButton("Cancel", new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+					}
+				});
+				
+				abd.show();
+				return false;
+			}
+		});
         
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
