@@ -32,12 +32,9 @@ public class ViewClaimActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.view_claim);
-        
 		ClaimListManager.initManager(this.getApplicationContext());
-        //ExpenseListManager.initManager(this.getApplicationContext());
         addItemsOnStatusSpinner();
         
-        //final Claim claim = getIntent().getParcelableExtra("claimTag");c
         claimIndex = getIntent().getIntExtra("claimPos", 0);
         Claim claim;
 		try {
@@ -47,18 +44,20 @@ public class ViewClaimActivity extends Activity {
 			e.printStackTrace();
 			claim = new Claim();  
 		}
+		
+		
         
         Spinner spinner = (Spinner) findViewById(R.id.statusSpinner);
 		spinner.setSelection(((ArrayAdapter)spinner.getAdapter()).getPosition(claim.getStatus()));
         
-    	EditText editText = (EditText) findViewById(R.id.claimNameEditText);
-    	editText.setText(claim.getName());
-    	editText = (EditText) findViewById(R.id.startDateEditText1);
-    	editText.setText(claim.getStartDate());
-    	editText = (EditText) findViewById(R.id.endDateEditText1);
-    	editText.setText(claim.getEndDate());
-    	editText = (EditText) findViewById(R.id.descriptionEditText1);
-    	editText.setText(claim.getDescription());
+    	EditText nameEditText = (EditText) findViewById(R.id.claimNameEditText);
+    	nameEditText.setText(claim.getName());
+    	EditText startDateEditText = (EditText) findViewById(R.id.startDateEditText1);
+    	startDateEditText.setText(claim.getStartDate());
+    	EditText endDateEditText = (EditText) findViewById(R.id.endDateEditText1);
+    	endDateEditText.setText(claim.getEndDate());
+    	EditText descriptionEditText = (EditText) findViewById(R.id.descriptionEditText1);
+    	descriptionEditText.setText(claim.getDescription());
     	
     	
     	ListView listView=(ListView)findViewById(R.id.expensesListView);
@@ -72,6 +71,13 @@ public class ViewClaimActivity extends Activity {
         listView.setAdapter(adapter);
     	
         final ExpenseList expenses = claim.getExpenses();
+        
+        if ( spinner.getSelectedItem().toString() == "Approved"){
+        	nameEditText.setKeyListener(null);
+        	startDateEditText.setKeyListener(null);
+        	endDateEditText.setKeyListener(null);
+        	descriptionEditText.setKeyListener(null);
+        }
         
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -182,18 +188,26 @@ public class ViewClaimActivity extends Activity {
 	public void saveClaim(View v) throws EmptyClaimListException{
 		Claim claim = ClaimListController.getClaimList().chooseClaim(claimIndex);
 		
-    	EditText nameText = (EditText) findViewById(R.id.claimNameEditText);
-    	EditText startDateText = (EditText) findViewById(R.id.startDateEditText1);
-    	EditText endDateText = (EditText) findViewById(R.id.endDateEditText1);
-    	EditText descritionText = (EditText) findViewById(R.id.descriptionEditText1);
-    	Spinner statusSpinner = (Spinner) findViewById(R.id.statusSpinner);
+		Spinner statusSpinner = (Spinner) findViewById(R.id.statusSpinner);
+		
+		EditText nameText = (EditText) findViewById(R.id.claimNameEditText);
+		EditText startDateText = (EditText) findViewById(R.id.startDateEditText1);
+		EditText endDateText = (EditText) findViewById(R.id.endDateEditText1);
+		EditText descriptionText = (EditText) findViewById(R.id.descriptionEditText1);
     	
-    	claim.updateClaim(nameText.getText().toString(), 
+		claim.updateClaim(nameText.getText().toString(), 
     			startDateText.getText().toString(), 
     			endDateText.getText().toString(), 
-    			descritionText.getText().toString(),
+    			descriptionText.getText().toString(),
     			statusSpinner.getSelectedItem().toString());
     	
-    	ClaimListController.saveClaimList();
+		ClaimListController.saveClaimList();
+		
+        if ( statusSpinner.getSelectedItem().toString() == "Approved"){
+        	nameText.setEnabled(false);
+        	startDateText.setKeyListener(null);
+        	endDateText.setKeyListener(null);
+        	descriptionText.setKeyListener(null);
+        }
 	}
 }

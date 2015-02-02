@@ -1,6 +1,13 @@
 package ca.ualberta.cs.expensetracker;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -41,7 +48,7 @@ public class CreateClaimActivity extends Activity {
 	}
 	
     //switches to ClaimCreatedActivity when "Create a New Claim" button is clicked
-    public void createClaim(View v){
+    public void createClaim(View v) throws ParseException{
     	Toast.makeText(this, "Create a claim", Toast.LENGTH_SHORT).show();
     	
     	ClaimListController cl = new ClaimListController();
@@ -60,5 +67,5 @@ public class CreateClaimActivity extends Activity {
     	intent.putExtra("claimTag", (Parcelable)claim);
     	startActivity(intent);
     }
-
+    
 }

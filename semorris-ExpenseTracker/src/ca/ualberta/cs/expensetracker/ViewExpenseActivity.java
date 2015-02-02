@@ -30,6 +30,14 @@ public class ViewExpenseActivity extends Activity {
                 
         expenseIndex = getIntent().getIntExtra("expensePos",0);
         claimIndex = getIntent().getIntExtra("claimPos",0);
+        Claim claim;
+		try {
+			claim = ClaimListController.getClaimList().chooseClaim(claimIndex);
+		} catch (EmptyClaimListException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			claim = new Claim();
+		}
         Expense expense;
 		try {
 			expense = ClaimListController.getClaimList().chooseClaim(claimIndex).getExpense(expenseIndex);
@@ -38,23 +46,32 @@ public class ViewExpenseActivity extends Activity {
 			expense = new Expense();
 		}
         
-    	EditText editText = (EditText) findViewById(R.id.expenseNameEditText);
-    	editText.setText(expense.getName());
-    	editText = (EditText) findViewById(R.id.expenseDateEditText);
-    	editText.setText(expense.getDate());
+    	EditText nameEditText = (EditText) findViewById(R.id.expenseNameEditText);
+    	nameEditText.setText(expense.getName());
+    	EditText dateEditText = (EditText) findViewById(R.id.expenseDateEditText);
+    	dateEditText.setText(expense.getDate());
     	
     	Toast.makeText(this, expense.getCategory(), Toast.LENGTH_SHORT).show();
     	
-    	Spinner spinner = (Spinner) findViewById(R.id.expenseCategorySpinner);
-		spinner.setSelection(((ArrayAdapter)spinner.getAdapter()).getPosition(expense.getCategory()));
+    	Spinner categorySpinner = (Spinner) findViewById(R.id.expenseCategorySpinner);
+		categorySpinner.setSelection(((ArrayAdapter)categorySpinner.getAdapter()).getPosition(expense.getCategory()));
     	
-    	spinner = (Spinner) findViewById(R.id.expenseCurrencySpinner);
-    	spinner.setSelection(((ArrayAdapter)spinner.getAdapter()).getPosition(expense.getCurrency()));
+    	Spinner currencySpinner = (Spinner) findViewById(R.id.expenseCurrencySpinner);
+    	currencySpinner.setSelection(((ArrayAdapter)currencySpinner.getAdapter()).getPosition(expense.getCurrency()));
     	
-    	editText = (EditText) findViewById(R.id.expenseAmountEditText);
-    	editText.setText(expense.getAmount());
-    	editText = (EditText) findViewById(R.id.expenseDescriptionEditText);
-    	editText.setText(expense.getDescription());
+    	EditText amountEditText = (EditText) findViewById(R.id.expenseAmountEditText);
+    	amountEditText.setText(expense.getAmount());
+    	EditText descriptionEditText = (EditText) findViewById(R.id.expenseDescriptionEditText);
+    	descriptionEditText.setText(expense.getDescription());
+    	
+    	if (claim.getStatus() == "Approved"){
+    		nameEditText.setKeyListener(null);
+    		dateEditText.setKeyListener(null);
+    		categorySpinner.setClickable(false);
+    		currencySpinner.setClickable(false);
+    		amountEditText.setKeyListener(null);
+    		descriptionEditText.setKeyListener(null);
+    	}
     	
 	}
 
