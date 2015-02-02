@@ -7,5 +7,7 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item android:id="@+id/emailClaimItem" android:title="Email Claim" android:onClick="emailClaim"></item>
+    <item android:id="@+id/homeItem" android:title="Home" android:onClick="goHome"></item>
 
 </menu>

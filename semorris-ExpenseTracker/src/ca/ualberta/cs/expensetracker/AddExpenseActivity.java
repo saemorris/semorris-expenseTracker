@@ -110,5 +110,6 @@ public class AddExpenseActivity extends Activity {
     	Intent intent = new Intent(AddExpenseActivity.this, ViewClaimActivity.class);
     	intent.putExtra("claimPos", index);
     	startActivity(intent);
+    	finish();
     }
 }

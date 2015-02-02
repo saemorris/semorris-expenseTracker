@@ -122,11 +122,7 @@ public class ViewClaimActivity extends Activity {
 		statusSpinner.setAdapter(dataAdapter);
 	}
 	
-	public void emailClaim(MenuItem menu){
-    	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
-    	Intent intent = new Intent(ViewClaimActivity.this, EmailClaimActivity.class);
-    	startActivity(intent);
-    }
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -146,6 +142,19 @@ public class ViewClaimActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public void emailClaim(MenuItem menu){
+    	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(ViewClaimActivity.this, EmailClaimActivity.class);
+    	intent.putExtra("claimPos", claimIndex);
+    	startActivity(intent);
+    }
+	
+	public void goHome(MenuItem menu){
+    	Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(ViewClaimActivity.this, ExistingClaimsActivity.class);
+    	startActivity(intent);
+    }
 	
 	public void addExpense(View v){
 		
