@@ -12,5 +12,4 @@ on February 1st 2015
 
 Demo Video Link:
 https://archive.org/details/ExpenseTrackerDemo
-https://www.dropbox.com/s/liy821lsq0aesuv/ExpenseTrackerVideo%281%29?dl=0
 
