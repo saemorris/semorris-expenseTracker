@@ -35,7 +35,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
@@ -87,21 +86,6 @@ public class ViewClaimActivity extends Activity {
         ListViewAdapter adapter=new ListViewAdapter(this, list);
         listView.setAdapter(adapter);
         
-/*		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
-		final ArrayList<Claim> list = new ArrayList<Claim>(claims);
-		final ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
-		listView.setAdapter(claimAdapter);
-        
-		ClaimListController.getClaimList().addListener(new Listener() {
-			@Override
-			public void update () {
-				list.clear();
-				Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
-				list.addAll(claims);
-				claimAdapter.notifyDataSetChanged();
-			}
-		});*/
-    	
         final ExpenseList expenses = claim.getExpenses();
         
         if ( spinner.getSelectedItem().toString() == "Approved"){
@@ -116,7 +100,6 @@ public class ViewClaimActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, 
 					int position, long id){
-				Toast.makeText(ViewClaimActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
 				AlertDialog.Builder abd = new AlertDialog.Builder(ViewClaimActivity.this);
 				abd.setMessage("Delete "+expenses.getExpense(position).toString()+"?");
 				abd.setCancelable(true);
@@ -142,7 +125,6 @@ public class ViewClaimActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
-				Toast.makeText(ViewClaimActivity.this, "select "+expenses.getExpense(position), Toast.LENGTH_SHORT).show();
 				AlertDialog.Builder abd = new AlertDialog.Builder(ViewClaimActivity.this);
 				abd.setMessage("Select "+expenses.getExpense(position).toString()+"?");
 				abd.setCancelable(true);
@@ -208,14 +190,12 @@ public class ViewClaimActivity extends Activity {
 	}
 	
 	public void emailClaim(MenuItem menu){
-    	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(ViewClaimActivity.this, EmailClaimActivity.class);
     	intent.putExtra("claimPos", claimIndex);
     	startActivity(intent);
     }
 	
 	public void goHome(MenuItem menu){
-    	Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(ViewClaimActivity.this, ExistingClaimsActivity.class);
     	startActivity(intent);
     }

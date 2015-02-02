@@ -66,9 +66,7 @@ public class ViewExpenseActivity extends Activity {
     	nameEditText.setText(expense.getName());
     	EditText dateEditText = (EditText) findViewById(R.id.expenseDateEditText);
     	dateEditText.setText(expense.getDate());
-    	
-    	Toast.makeText(this, expense.getCategory(), Toast.LENGTH_SHORT).show();
-    	
+    	 	
     	Spinner categorySpinner = (Spinner) findViewById(R.id.expenseCategorySpinner);
 		categorySpinner.setSelection(((ArrayAdapter)categorySpinner.getAdapter()).getPosition(expense.getCategory()));
     	
@@ -111,7 +109,6 @@ public class ViewExpenseActivity extends Activity {
 	}
 	
 	public void saveExpense(View v) throws EmptyClaimListException{
-Toast.makeText(this, "Save Expense", Toast.LENGTH_SHORT).show();
     	
     	Claim claim = ClaimListController.getClaimList().chooseClaim(claimIndex);
     	Expense expense = ClaimListController.getClaimList().chooseClaim(claimIndex).getExpense(expenseIndex);

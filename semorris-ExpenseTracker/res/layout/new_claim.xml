@@ -36,8 +36,7 @@
         android:layout_alignTop="@+id/startDateTextView"
         android:layout_toRightOf="@+id/claimNameTextView"
         android:ems="10"
-        android:inputType="date"
-        android:text="MM/DD/YYYY" />
+        android:inputType="date" />
 
     <EditText
         android:id="@+id/endDateEditText1"
@@ -46,8 +45,7 @@
         android:layout_alignLeft="@+id/startDateEditText"
         android:layout_below="@+id/startDateEditText"
         android:ems="10"
-        android:inputType="date"
-        android:text="MM/DD/YYYY" />
+        android:inputType="date" />
 
     <TextView
         android:id="@+id/descriptionOfClaimTextView"

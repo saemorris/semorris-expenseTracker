@@ -65,7 +65,6 @@ public class ExistingClaimsActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, 
 					int position, long id){
-				//Toast.makeText(ExistingClaimsActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
 				AlertDialog.Builder abd = new AlertDialog.Builder(ExistingClaimsActivity.this);
 				abd.setMessage("Delete "+list.get(position).toString()+"?");
 				abd.setCancelable(true);
@@ -91,7 +90,6 @@ public class ExistingClaimsActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
-				Toast.makeText(ExistingClaimsActivity.this, "select "+list.get(position), Toast.LENGTH_SHORT).show();
 				AlertDialog.Builder abd = new AlertDialog.Builder(ExistingClaimsActivity.this);
 				abd.setMessage("Select "+list.get(position).toString()+"?");
 				abd.setCancelable(true);
@@ -134,20 +132,17 @@ public class ExistingClaimsActivity extends Activity {
 	}
 	
     public void createClaim (View v) {
-    	Toast.makeText(this, "Create new Claim", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(ExistingClaimsActivity.this, CreateClaimActivity.class);
     	startActivity(intent);
     }
     
     
     public void emailClaim(MenuItem menu){
-    	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(ExistingClaimsActivity.this, EmailClaimActivity.class);
     	startActivity(intent);
     }
     
     public void addExpense(MenuItem menu){
-    	Toast.makeText(this, "Add Expense", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(ExistingClaimsActivity.this, AddExpenseActivity.class);
     	startActivity(intent);
     }

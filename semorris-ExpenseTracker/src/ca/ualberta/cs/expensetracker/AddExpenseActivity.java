@@ -102,7 +102,6 @@ public class AddExpenseActivity extends Activity {
 	
 	//switches to the expenseListActivity when the "save" button is clicked
     public void saveExpense(View v) throws EmptyClaimListException{
-    	Toast.makeText(this, "Save Expense", Toast.LENGTH_SHORT).show();
     	
     	int index = getIntent().getIntExtra("claimPos",0);
     	Claim claim = ClaimListController.getClaimList().chooseClaim(index);

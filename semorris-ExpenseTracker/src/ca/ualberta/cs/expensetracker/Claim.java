@@ -107,14 +107,14 @@ public class Claim implements Serializable, Parcelable {
     }
     
     public String toString(){
-    	return getName();
+    	return getName()+ "\t\t" + getStartDate() + "\t\t" + getStatus();
     }
     
     public boolean equals (Object compareClaim){
     	if (compareClaim != null && compareClaim.getClass()==this.getClass()) {
     		return this.equals((Claim)compareClaim);
     	} else {
-    		return false;
+    		return false;	
     	}
     }
     

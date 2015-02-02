@@ -62,32 +62,13 @@ public class EmailClaimActivity extends Activity {
 	}
 	
     public void goHome(MenuItem menu){
-    	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(EmailClaimActivity.this, ExistingClaimsActivity.class);
     	startActivity(intent);
     	finish();
     }
     
     public void sendEmail() throws EmptyClaimListException{
-    	Toast.makeText(EmailClaimActivity.this, "email claim", Toast.LENGTH_SHORT).show();
-    	
-       /* String[] TO = {"semorris@ualberta.ca"};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Claim Request");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");	
-
-        try {
-           startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-           finish();
-        } catch (android.content.ActivityNotFoundException ex) {
-           Toast.makeText(EmailClaimActivity.this, 
-           "There is no email client installed.", Toast.LENGTH_SHORT).show();
-        }*/
-        
+ 
     	int claimIndex = getIntent().getIntExtra("claimPos", 0);
     	Claim claim = ClaimListController.getClaimList().chooseClaim(claimIndex);
     	String expenses = "";
