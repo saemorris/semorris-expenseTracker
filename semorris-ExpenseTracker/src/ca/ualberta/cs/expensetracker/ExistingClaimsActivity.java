@@ -117,16 +117,6 @@ public class ExistingClaimsActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
- /*   public void chooseAClaim(View v){
-    	Toast.makeText(this, "Choose a claim", Toast.LENGTH_SHORT).show();
-    	ClaimListController cl = new ClaimListController();
-    	try {
-    		Claim c = cl.chooseClaim();
-    	} catch (EmptyClaimListException e) {
-    		Toast.makeText(this, "Choose a claim", Toast.LENGTH_SHORT).show();
-    	}
-    }*/
-    
     public void createClaim (View v) {
     	Toast.makeText(this, "Create new Claim", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(ExistingClaimsActivity.this, CreateClaimActivity.class);
@@ -137,12 +127,6 @@ public class ExistingClaimsActivity extends Activity {
     public void emailClaim(MenuItem menu){
     	Toast.makeText(this, "Email Claim", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(ExistingClaimsActivity.this, EmailClaimActivity.class);
-    	startActivity(intent);
-    }
-    
-    public void editExpense(MenuItem menu){
-    	Toast.makeText(this, "Edit Expense", Toast.LENGTH_SHORT).show();
-    	Intent intent = new Intent(ExistingClaimsActivity.this, EditExpenseActivity.class);
     	startActivity(intent);
     }
     

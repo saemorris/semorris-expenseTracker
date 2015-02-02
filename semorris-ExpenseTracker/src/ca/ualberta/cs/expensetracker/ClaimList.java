@@ -73,11 +73,6 @@ public class ClaimList implements Serializable{
 	public void removeListener(Listener l) {
 		getListeners().remove(l);
 	}
-
-	public void selectClaim(Claim claim) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public void updateClaim(Claim claim){
 		notifyListeners();

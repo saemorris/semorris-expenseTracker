@@ -27,16 +27,13 @@ public class ViewExpenseActivity extends Activity {
 		
 		ClaimListManager.initManager(this.getApplicationContext());
         ExpenseListManager.initManager(this.getApplicationContext());
-        
-        //Expense expense = getIntent().getParcelableExtra("expenseTag");
-        
+                
         expenseIndex = getIntent().getIntExtra("expensePos",0);
         claimIndex = getIntent().getIntExtra("claimPos",0);
         Expense expense;
 		try {
 			expense = ClaimListController.getClaimList().chooseClaim(claimIndex).getExpense(expenseIndex);
 		} catch (EmptyClaimListException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			expense = new Expense();
 		}
@@ -100,10 +97,7 @@ Toast.makeText(this, "Save Expense", Toast.LENGTH_SHORT).show();
     			amountText.getText().toString(), 
     			descritionText.getText().toString() );
     	
-    	//claim.addExpense(expense);
     	ClaimListController.saveClaimList();
-    	//claim.notify();
-    	//Double.parseDouble(amountText.getText().toString())
     	Intent intent = new Intent(ViewExpenseActivity.this, ViewClaimActivity.class);
     	intent.putExtra("claimPos", claimIndex);
     	startActivity(intent);

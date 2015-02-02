@@ -107,8 +107,6 @@ public class AddExpenseActivity extends Activity {
     	
     	claim.addExpense(expense);
     	ClaimListController.saveClaimList();
-    	//claim.notify();
-    	//Double.parseDouble(amountText.getText().toString())
     	Intent intent = new Intent(AddExpenseActivity.this, ViewClaimActivity.class);
     	intent.putExtra("claimPos", index);
     	startActivity(intent);

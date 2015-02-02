@@ -71,28 +71,6 @@ public class ViewClaimActivity extends Activity {
         ListViewAdapter adapter=new ListViewAdapter(this, list);
         listView.setAdapter(adapter);
     	
-    	
-    	
-    	
-    	/*ListView listView = (ListView) findViewById(R.id.expensesListView);
-		ExpenseList expenseList = claim.getExpenses();
-    	//Collection<Expense> expenses = ExpenseListController.getExpenseList().getExpenses();
-		final ArrayList<Expense> list = new ArrayList<Expense>();
-		final ArrayAdapter<Expense> expenseAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
-		listView.setAdapter(expenseAdapter);
-    	
-		ExpenseListController.getExpenseList().addListener(new Listener() {
-			@Override
-			public void update () {
-				ExpenseList finalExpenses = expenses;
-				//list.clear();
-				//Collection<Expense> expenses = ExpenseListController.getExpenseList().getExpenses();
-				//list.addAll(expenses);
-				finalExpenses = claim.getExpenses();
-				expenseAdapter.notifyDataSetChanged();
-			}
-		});*/
-		
         final ExpenseList expenses = claim.getExpenses();
         
 		listView.setOnItemClickListener(new OnItemClickListener() {
