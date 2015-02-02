@@ -7,8 +7,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Parcelable;
 
 public class CreateClaimActivity extends Activity {
 
@@ -48,9 +50,15 @@ public class CreateClaimActivity extends Activity {
     	EditText endDateText = (EditText) findViewById(R.id.endDateEditText1);
     	EditText descritionText = (EditText) findViewById(R.id.descriptionOfClaimEditText);
     	
-    	cl.addClaim(new Claim(nameText.getText().toString(), startDateText.getText().toString(), endDateText.getText().toString(), descritionText.getText().toString()));
+    	Claim claim = new Claim(nameText.getText().toString(), 
+    			startDateText.getText().toString(), 
+    			endDateText.getText().toString(), 
+    			descritionText.getText().toString());
+    	cl.addClaim(claim);
     	
-    	Intent intent = new Intent(CreateClaimActivity.this, ClaimCreatedActivity.class);
+    	Intent intent = new Intent(CreateClaimActivity.this, ViewClaimActivity.class);
+    	intent.putExtra("claimTag", (Parcelable)claim);
     	startActivity(intent);
     }
+
 }

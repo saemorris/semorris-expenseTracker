@@ -3,6 +3,7 @@ package ca.ualberta.cs.expensetracker;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,8 +48,10 @@ public class ClaimCreatedActivity extends Activity {
     //switches to AddExpenseActivity when "Add Expenses to your Claim" button is clicked
     public void addExpense(View v){
     	Toast.makeText(this, "Add Expense", Toast.LENGTH_SHORT).show();
+    	Claim claim = getIntent().getParcelableExtra("claimTag");
     	
     	Intent intent = new Intent(ClaimCreatedActivity.this, AddExpenseActivity.class);
+    	intent.putExtra("claimTag", (Parcelable)claim);
     	startActivity(intent);
     }
     

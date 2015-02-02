@@ -47,6 +47,14 @@ public class ExpenseList implements Serializable{
 		return expenseList.contains(e);
 	}
 	
+	public Expense getExpense(int pos){
+		return expenseList.get(pos);
+	}
+	
+	public int getPos(Expense expense){
+		return expenseList.indexOf(expense);
+	}
+	
 	public Expense chooseExpense() throws EmptyExpenseListException {
 		int size = expenseList.size();
 		if (size <= 0) {

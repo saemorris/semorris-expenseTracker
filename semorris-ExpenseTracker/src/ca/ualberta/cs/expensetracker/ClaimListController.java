@@ -39,11 +39,12 @@ public class ClaimListController {
 		}
 	}
 
-	public Claim chooseClaim() throws EmptyClaimListException {
-		return getClaimList().chooseClaim();
+	public Claim chooseClaim(int index) throws EmptyClaimListException {
+		return getClaimList().chooseClaim(index);
 	}
 	
 	public void addClaim(Claim claim){
 		getClaimList().addClaim(claim);
 	}
+
 }

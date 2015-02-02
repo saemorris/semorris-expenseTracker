@@ -27,6 +27,10 @@ public class Expense implements Serializable, Parcelable {
 		this.description = description;
 	}
 	
+	public Expense (){
+		
+	}
+	
 	public Expense (Parcel in){
     	String[] data = new String[6];
     	
@@ -34,9 +38,10 @@ public class Expense implements Serializable, Parcelable {
     	this.name = data[0];
     	this.date = data[1];
     	this.category = data[2];
-    	this.currency = data[3];
-    	this.amount = data[4];
-    	this.description = data[5];
+    	this.description = data[3];
+    	this.currency = data[4];
+    	this.amount = data[5];
+    	
     }
 	
 	public String getName(){
@@ -61,6 +66,15 @@ public class Expense implements Serializable, Parcelable {
 	
 	public String getDescription(){
 		return this.description;
+	}
+	
+	public void updateExpense(String name, String date, String category, String currency, String amount, String description){
+		this.name = name;
+		this.date = date;
+		this.category = category;
+		this.currency = currency;
+		this.amount = amount;
+		this.description = description;
 	}
 	
 	public String toString() {

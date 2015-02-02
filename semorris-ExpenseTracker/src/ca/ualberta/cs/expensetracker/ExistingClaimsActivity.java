@@ -83,10 +83,10 @@ public class ExistingClaimsActivity extends Activity {
 				abd.setPositiveButton("Select", new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						Claim claim = list.get(finalPosition);
+						int index = ClaimListController.getClaimList().getPos(claim);
 				    	Intent intent = new Intent(ExistingClaimsActivity.this, ViewClaimActivity.class);
-				    	intent.putExtra("claimTag", (Parcelable)claim);
+				    	intent.putExtra("claimPos", index);
 				    	startActivity(intent);
-						
 					}
 				});
 				abd.setNegativeButton("Cancel", new OnClickListener() {
@@ -117,7 +117,7 @@ public class ExistingClaimsActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-    public void chooseAClaim(View v){
+ /*   public void chooseAClaim(View v){
     	Toast.makeText(this, "Choose a claim", Toast.LENGTH_SHORT).show();
     	ClaimListController cl = new ClaimListController();
     	try {
@@ -125,6 +125,12 @@ public class ExistingClaimsActivity extends Activity {
     	} catch (EmptyClaimListException e) {
     		Toast.makeText(this, "Choose a claim", Toast.LENGTH_SHORT).show();
     	}
+    }*/
+    
+    public void createClaim (View v) {
+    	Toast.makeText(this, "Create new Claim", Toast.LENGTH_SHORT).show();
+    	Intent intent = new Intent(ExistingClaimsActivity.this, CreateClaimActivity.class);
+    	startActivity(intent);
     }
     
     
@@ -145,11 +151,6 @@ public class ExistingClaimsActivity extends Activity {
     	Intent intent = new Intent(ExistingClaimsActivity.this, AddExpenseActivity.class);
     	startActivity(intent);
     }
-    
-    public void changeStatus(MenuItem menu){
-    	Toast.makeText(this, "Change Claim Status", Toast.LENGTH_SHORT).show();
-    	Intent intent = new Intent(ExistingClaimsActivity.this, ChangeStatusActivity.class);
-    	startActivity(intent);
-    }
+
     
 }

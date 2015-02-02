@@ -45,13 +45,16 @@ public class ClaimList implements Serializable{
 		claimList.remove(testStudent);
 		notifyListeners();
 	}
+	
+	public int getPos(Claim claim){
+		return claimList.indexOf(claim);
+	}
 
-	public Claim chooseClaim() throws EmptyClaimListException {
+	public Claim chooseClaim(int index) throws EmptyClaimListException {
 		int size = claimList.size();
 		if (size <= 0) {
 			throw new EmptyClaimListException();
 		}
-		int index = (int) (claimList.size() * Math.random());
 		return claimList.get(index);
 	}
 
@@ -74,6 +77,10 @@ public class ClaimList implements Serializable{
 	public void selectClaim(Claim claim) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void updateClaim(Claim claim){
+		notifyListeners();
 	}
 	
 }

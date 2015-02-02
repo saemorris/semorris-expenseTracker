@@ -21,4 +21,13 @@
         android:text="@string/select_a_claim"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/addExpenseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="createClaim"
+        android:text="Create New Claim" />
+
 </RelativeLayout>

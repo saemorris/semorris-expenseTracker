@@ -1,7 +1,9 @@
 package ca.ualberta.cs.expensetracker;
 
+import java.io.IOException;
 import java.io.Serializable;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -16,8 +18,11 @@ public class Claim implements Serializable, Parcelable {
     protected String startDate;
     protected String endDate;
     protected String descrpition;
-    protected ExpenseList expenses;
+    protected String status;
+    protected ExpenseList expenseList;
 
+    Context context;
+    
     public Claim(){
     	
     }
@@ -31,16 +36,26 @@ public class Claim implements Serializable, Parcelable {
         this.startDate = startDate;
         this.endDate = endDate;
         this.descrpition = description;
+        if(expenseList == null){
+        	expenseList = new ExpenseList();
+        }
+        this.status = "In Progress";
     }
     
-    public Claim (Parcel in){
-    	String[] data = new String[4];
+    public void addExpense(Expense expense){
+    	this.expenseList.addExpense(expense);
+    	//this.notifyAll();
+    }
+    
+    public Claim (Parcel in) throws IOException, ClassNotFoundException{
+    	String[] data = new String[5];
     	
     	in.readStringArray(data);
     	this.name = data[0];
     	this.startDate = data[1];
     	this.endDate = data[2];
     	this.descrpition = data[3];
+    	this.expenseList = ExpenseListManager.expenseListFromString(data[4]);
     }
     
     public String getName(){
@@ -60,7 +75,19 @@ public class Claim implements Serializable, Parcelable {
     }
     
     public ExpenseList getExpenses(){
-    	return expenses;
+    	return expenseList;
+    }
+    
+    public String getStatus(){
+    	return status;
+    }
+    
+    public Expense getExpense(int index){
+    	return expenseList.getExpense(index);
+    }
+    
+    public int getExpensePos(Expense expense){
+    	return expenseList.getPos(expense);
     }
     
     public String toString(){
@@ -94,7 +121,16 @@ public class Claim implements Serializable, Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeStringArray(new String[]{this.name, this.startDate, this.endDate, this.descrpition});
+		try {
+			dest.writeStringArray(new String[]{this.name, 
+					this.startDate, 
+					this.endDate, 
+					this.descrpition, 
+					ExpenseListManager.expenseListToString(expenseList)});
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static final Parcelable.Creator<Claim> CREATOR = new Parcelable.Creator<Claim>() {
@@ -102,7 +138,17 @@ public class Claim implements Serializable, Parcelable {
 		@Override
 		public Claim createFromParcel(Parcel source) {
 			// TODO Auto-generated method stub
-			return new Claim(source);
+			try {
+				return new Claim(source);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
 		}
 
 		@Override
@@ -111,5 +157,13 @@ public class Claim implements Serializable, Parcelable {
 			return new Claim[size];
 		}
 	};
+
+	public void updateClaim(String name, String startDate, String endDate, String description, String status) {
+		this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.descrpition = description;
+        this.status = status;
+	}
 
 }

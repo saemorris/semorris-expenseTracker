@@ -19,6 +19,7 @@ public class ClaimListManager {
 	Context context;
 
 	private static ClaimListManager claimListManager = null;
+	private ClaimList cl = null;
 	
 	public static void initManager (Context context){
 		if (claimListManager == null){
@@ -45,9 +46,11 @@ public class ClaimListManager {
 		SharedPreferences settings = context.getSharedPreferences(prefFile, Context.MODE_PRIVATE);
 		String claimListData = settings.getString(clKey, "");
 		if (claimListData.equals("")) {
-			return new ClaimList();
+			cl = new ClaimList();
+			return cl;
 		} else {
-			return claimListFromString(claimListData);
+			cl = claimListFromString(claimListData);
+			return cl;
 		}
 	}
 

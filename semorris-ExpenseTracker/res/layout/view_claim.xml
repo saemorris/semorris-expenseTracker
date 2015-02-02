@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:ems="10" >
 
@@ -24,11 +25,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/claimNameEditText"
+        android:layout_alignTop="@+id/startDateEditText1"
         android:layout_marginLeft="19dp"
-        android:layout_marginTop="16dp"
         android:text="Start Date:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
         android:id="@+id/startDateEditText1"
@@ -36,15 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/claimNameEditText"
         android:layout_toRightOf="@+id/startDateTextView1"
-        android:ems="10"
-        android:inputType="date" />
-
-    <EditText
-        android:id="@+id/endDateEditText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/endDateTextView1"
-        android:layout_toRightOf="@+id/endDateTextView1"
         android:ems="10"
         android:inputType="date" />
 
@@ -56,7 +47,7 @@
         android:layout_below="@+id/endDateTextView1"
         android:layout_marginTop="16dp"
         android:text="Description:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
         android:id="@+id/descriptionEditText1"
@@ -65,29 +56,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/DescriptionTextView1"
-        android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/expensesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/descriptionEditText1"
-        android:layout_below="@+id/descriptionEditText1"
-        android:layout_marginTop="14dp"
-        android:text="Expenses:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/endDateTextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/claimNameEditText"
-        android:layout_below="@+id/startDateTextView1"
-        android:layout_marginTop="16dp"
-        android:text="End Date:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ListView
         android:id="@+id/expensesListView"
@@ -96,5 +66,66 @@
         android:layout_alignLeft="@+id/expensesTextView"
         android:layout_below="@+id/expensesTextView" >
     </ListView>
+    
+    <Button
+        android:id="@+id/addExpenseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="addExpense"
+        android:text="Add Expense" />
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/descriptionEditText1"
+        android:layout_below="@+id/descriptionEditText1"
+        android:text="Status"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/statusSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionEditText1"
+        android:layout_toRightOf="@+id/statusTextView" />
+
+    <TextView
+        android:id="@+id/expensesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/statusTextView1"
+        android:layout_centerVertical="true"
+        android:text="Expenses:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/endDateEditText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/startDateEditText1"
+        android:layout_toRightOf="@+id/DescriptionTextView1"
+        android:ems="10"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/endDateTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startDateTextView1"
+        android:layout_alignTop="@+id/endDateEditText1"
+        android:text="End Date:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="saveClaim"
+        android:text="Save" />
 
 </RelativeLayout>

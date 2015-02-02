@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,7 @@ public class AddExpenseActivity extends Activity {
         ExpenseListManager.initManager(this.getApplicationContext());
         addItemsOnExpenseCurrencySpinner();
         addItemsOnExpenseCategorySpinner();
+
     }
 	
 	public void addItemsOnExpenseCurrencySpinner(){
@@ -83,10 +85,12 @@ public class AddExpenseActivity extends Activity {
 	}
 	
 	//switches to the expenseListActivity when the "save" button is clicked
-    public void saveExpense(View v){
+    public void saveExpense(View v) throws EmptyClaimListException{
     	Toast.makeText(this, "Save Expense", Toast.LENGTH_SHORT).show();
     	
-    	ExpenseListController el = new ExpenseListController();
+    	int index = getIntent().getIntExtra("claimPos",0);
+    	Claim claim = ClaimListController.getClaimList().chooseClaim(index);
+    	
     	EditText nameText = (EditText) findViewById(R.id.expenseNameEditText);
     	EditText dateText = (EditText) findViewById(R.id.expenseDateEditText);
     	Spinner categorySpinner = (Spinner) findViewById(R.id.expenseCategorySpinner);
@@ -94,11 +98,19 @@ public class AddExpenseActivity extends Activity {
     	EditText amountText = (EditText) findViewById(R.id.expenseAmountEditText);
     	EditText descritionText = (EditText) findViewById(R.id.expenseDescriptionEditText);
     	
-    	el.addExpense(new Expense(nameText.getText().toString(), dateText.getText().toString(), 
-    			categorySpinner.getSelectedItem().toString(), currencySpinner.getSelectedItem().toString(), 
-    			amountText.getText().toString(), descritionText.getText().toString()));
+    	Expense expense = new Expense(nameText.getText().toString(), 
+    			dateText.getText().toString(), 
+    			categorySpinner.getSelectedItem().toString(), 
+    			currencySpinner.getSelectedItem().toString(), 
+    			amountText.getText().toString(), 
+    			descritionText.getText().toString());
+    	
+    	claim.addExpense(expense);
+    	ClaimListController.saveClaimList();
+    	//claim.notify();
     	//Double.parseDouble(amountText.getText().toString())
-    	Intent intent = new Intent(AddExpenseActivity.this, ExpenseListActivity.class);
+    	Intent intent = new Intent(AddExpenseActivity.this, ViewClaimActivity.class);
+    	intent.putExtra("claimPos", index);
     	startActivity(intent);
     }
 }
