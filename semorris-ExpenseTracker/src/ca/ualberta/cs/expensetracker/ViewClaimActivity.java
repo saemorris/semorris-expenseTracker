@@ -86,6 +86,21 @@ public class ViewClaimActivity extends Activity {
 		}
         ListViewAdapter adapter=new ListViewAdapter(this, list);
         listView.setAdapter(adapter);
+        
+/*		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
+		final ArrayList<Claim> list = new ArrayList<Claim>(claims);
+		final ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
+		listView.setAdapter(claimAdapter);
+        
+		ClaimListController.getClaimList().addListener(new Listener() {
+			@Override
+			public void update () {
+				list.clear();
+				Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
+				list.addAll(claims);
+				claimAdapter.notifyDataSetChanged();
+			}
+		});*/
     	
         final ExpenseList expenses = claim.getExpenses();
         
